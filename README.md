@@ -1,0 +1,863 @@
+**# CHAOS — Context for Human-AI Organization of Systems
+
+## Definition
+
+**CHAOS (Context for Human-AI Organization of Systems)** is an open convention for organizing the context required to understand, develop, maintain, and evolve software systems by both humans and AI agents.
+
+CHAOS provides a structured, canonical context layer without depending on a specific AI provider, IDE, programming language, or development tool.
+
+CHAOS is free to use, adapt, and extend.
+
+The convention uses a dedicated system-context directory:
+
+```text
+project/
+├── README.md
+├── AGENTS.md
+└── .chaos/
+```
+
+- `README.md` — Human Entry Point
+- `AGENTS.md` — AI Agent Entry Point
+- `.chaos/` — Canonical System Context
+
+For systems composed of multiple repositories, shared knowledge can be maintained in a dedicated shared CHAOS repository.
+
+**---**
+
+
+**## Getting Started**
+
+Use [\`STARTER-PROMPT.md\`]\(STARTER-PROMPT.md) with an AI agent to implement CSS in an existing repository. The prompt guides the agent through a complete project audit, a proposed context structure for approval, implementation of \`README.md\`, \`AGENTS.md\`, and \`.chaos/\`, and a final coverage and consistency review.
+
+**---**
+
+**## From Chaos to Order
+
+Software systems naturally accumulate complexity.
+
+Knowledge becomes distributed across source code, documentation, conversations, tickets, design files, decisions, repositories, and — most importantly — the people who understand how everything fits together.
+
+When that knowledge is not explicitly organized, the system's understanding becomes dependent on individuals and temporary interactions.
+
+**Chaos precedes order.**
+
+CHAOS does not attempt to eliminate complexity. It provides a place and structure through which the knowledge of a system can be organized into a shared, persistent understanding.
+
+The goal is not to create more documentation.
+
+The goal is to make the system's understanding part of the system itself.
+
+> **From chaos to shared understanding.**
+
+**---**
+
+## Purpose
+
+CHAOS makes the knowledge required to understand, develop, maintain, and evolve a system:
+
+- Discoverable
+- Structured
+- Canonical
+- Human-readable
+- AI-readable
+- Tool-agnostic
+- Shared when necessary
+- Persistent across people, agents, and development sessions
+
+The goal is to reduce the need for humans to manually transfer context between projects, developers, or AI agents.
+
+The system should not depend on a human being the carrier of its context.
+
+**---**
+
+
+**## Core Principle
+
+> **The source code contains the implementation. CHAOS contains the context required to understand and evolve the system.**
+
+Source code answers:
+
+> How is this implemented?
+
+CHAOS answers:
+
+> What is this system? Why does it work this way? What are its rules, constraints, relationships, and expected behaviors?
+
+Humans and AI agents should be able to arrive at the same system understanding without relying on previous conversations or a specific individual.
+
+**---**
+
+
+**## Project Structure**
+
+Every CHAOS-compliant project should expose:
+
+\`\`\`text
+
+project/
+
+├── README.md
+
+├── AGENTS.md
+
+└── .chaos/
+
+\`\`\`
+
+**### README.md — Human Entry Point**
+
+Used for:
+
+\- Project purpose
+
+\- Overview
+
+\- Installation
+
+\- Development commands
+
+\- Technology stack
+
+\- Basic usage
+
+\- Repository information
+
+The README is optimized for human onboarding.
+
+**### AGENTS.md — AI Agent Entry Point**
+
+Used for:
+
+\- Repository role
+
+\- Agent instructions
+
+\- Location of \`.chaos/\`
+
+\- Important rules
+
+\- Shared CHAOS references
+
+\- Project-specific constraints
+
+\`AGENTS.md\` should remain concise. It is an entry point, not the complete knowledge base.
+
+**### .chaos/ — System Context**
+
+Contains the knowledge required to understand and work on the project.
+
+It may include:
+
+\- Architecture
+
+\- Business logic
+
+\- Feature behavior
+
+\- Design
+
+\- UX/UI behavior
+
+\- Integrations
+
+\- Contracts
+
+\- Security constraints
+
+\- System relationships
+
+\- Operational knowledge
+
+\- Technical decisions
+
+\- Important limitations
+
+\- Project-specific conventions
+
+The internal structure of \`.chaos/\` is flexible and should evolve according to the project's needs.
+
+**---**
+
+**## Example**
+
+See [\`example/\`]\(example/) for a realistic CHAOS-compliant order-management API showing the human entry point, AI agent entry point, and categorized canonical context.
+
+**---**
+
+**## Shared CHAOS**
+
+When multiple repositories are part of the same system, knowledge shared across those repositories may live in a dedicated shared CHAOS repository.
+
+Example:
+
+\`\`\`text
+
+company-shared-css/
+
+├── branding/
+
+├── assets/
+
+├── prompts/
+
+├── integrations/
+
+├── contracts/
+
+└── shared/
+
+\`\`\`
+
+Shared CHAOS may contain:
+
+\- Branding
+
+\- Design assets
+
+\- Shared assets
+
+\- Prompts
+
+\- Shared components
+
+\- Shared conventions
+
+\- Cross-project integrations
+
+\- API contracts
+
+\- Data contracts
+
+\- Shared behaviors
+
+\- System-wide constraints
+
+\- Other reusable system knowledge
+
+Shared CHAOS is not a task manager and should not become a repository of temporary communication.
+
+**---**
+
+**## Local vs Shared Context**
+
+\> **\*\*Project-specific knowledge belongs in the project's \`.chaos/\`. Knowledge required by multiple projects belongs in Shared CHAOS.\*\***
+
+Example:
+
+\`\`\`text
+
+company-api/.chaos/
+
+\`\`\`
+
+may contain API internal architecture, internal services, database behavior, and API-specific business logic.
+
+While:
+
+\`\`\`text
+
+company-shared-css/
+
+\`\`\`
+
+may contain Company branding, shared assets, API ↔ App integration, API ↔ Admin integration, shared prompts, shared contracts, and system-wide design rules.
+
+**---**
+
+**## Single Source of Truth**
+
+\> **\*\*One concept should have one canonical source.\*\***
+
+Avoid:
+
+\`\`\`text
+
+company-api/FE-INTEGRATION.md
+
+company-app/FE-INTEGRATION.md
+
+company-admin/FE-INTEGRATION.md
+
+\`\`\`
+
+Prefer:
+
+\`\`\`text
+
+company-shared-css/
+
+└── integrations/
+
+    └── app-api.md
+
+\`\`\`
+
+Projects should reference canonical shared knowledge instead of duplicating it.
+
+**---**
+
+**## Human and AI Access**
+
+Human flow:
+
+\`\`\`text
+
+Human
+
+  ↓
+
+README.md
+
+  ↓
+
+.chaos/ when deeper context is required
+
+  ↓
+
+Source Code
+
+\`\`\`
+
+AI flow:
+
+\`\`\`text
+
+AI Agent
+
+  ↓
+
+AGENTS.md
+
+  ↓
+
+.chaos/
+
+  ↓
+
+Shared CHAOS when required
+
+  ↓
+
+Source Code
+
+\`\`\`
+
+Both audiences ultimately use the same canonical system context.
+
+**---**
+
+**## AI Agent Rules**
+
+An AI agent entering a CHAOS-compliant project should:
+
+1\. Read \`AGENTS.md\`.
+
+2\. Understand the role of the repository.
+
+3\. Identify relevant \`.chaos/\` documents.
+
+4\. Read the required context before making significant changes.
+
+5\. Determine whether the change affects another project.
+
+6\. Consult Shared CHAOS when necessary.
+
+7\. Implement the change.
+
+8\. Update the relevant CSS when canonical system behavior changes.
+
+The agent should not assume that source code alone represents the complete system requirements.
+
+**### When CHAOS must be consulted**
+
+Especially when working on:
+
+\- Architecture
+
+\- Business logic
+
+\- Feature behavior
+
+\- UX/UI behavior
+
+\- Design
+
+\- Branding
+
+\- Assets
+
+\- Integrations
+
+\- API contracts
+
+\- Data flows
+
+\- Authentication
+
+\- Security-sensitive behavior
+
+\- Cross-project functionality
+
+\- System-wide conventions
+
+\- Existing technical decisions
+
+\- Non-obvious constraints
+
+Agents do not need to read the entire CHAOS repository for every change. Context should be consumed according to relevance.
+
+**---**
+
+**## Cross-Project Changes**
+
+When a change affects multiple repositories, the agent must consider the relevant shared context.
+
+Example:
+
+\`\`\`text
+
+company-api
+
+     ↓
+
+API behavior changes
+
+     ↓
+
+company-app
+
+     ↓
+
+company-admin
+
+\`\`\`
+
+The shared specification should describe the canonical expected behavior where appropriate.
+
+Agents should not independently redefine shared behavior in ways that create incompatible implementations.
+
+When canonical system behavior changes, the relevant CHAOS should be updated as part of the change.
+
+**---**
+
+**## CHAOS vs Source Code**
+
+CHAOS describes system context and intended behavior.
+
+Source code implements that behavior.
+
+CHAOS should not become a copy of the implementation.
+
+Good:
+
+\`\`\`text
+
+The Admin application obtains account information through
+
+the API and must not access the database directly.
+
+\`\`\`
+
+Unnecessary:
+
+\`\`\`text
+
+A complete copy of the AccountService implementation.
+
+\`\`\`
+
+The specification should contain information that helps humans and AI correctly understand and evolve the system.
+
+**---**
+
+**## CHAOS vs README.md**
+
+\| File | Purpose |
+
+\|---|---|
+
+\| \`README.md\` | Human onboarding |
+
+\| \`AGENTS.md\` | AI onboarding and instructions |
+
+\| \`.chaos/\` | Canonical project context |
+
+README focuses on getting into the project.
+
+CHAOS contains deeper system knowledge.
+
+Large duplication between README and CHAOS should be avoided.
+
+**---**
+
+**## CHAOS vs AGENTS.md**
+
+\`AGENTS.md\` tells an AI agent **\*\*how to enter and navigate the project\*\***.
+
+\`.chaos/\` tells the agent **\*\*what it needs to know about the system\*\***.
+
+\`\`\`text
+
+AGENTS.md
+
+    ↓
+
+Where should I look?
+
+    ↓
+
+.chaos/
+
+    ↓
+
+What do I need to know?
+
+\`\`\`
+
+\`AGENTS.md\` should therefore remain concise.
+
+**---**
+
+**## Shared Assets**
+
+Shared CHAOS may contain assets when those assets are part of the canonical system context or are intentionally reused across projects.
+
+Examples:
+
+\`\`\`text
+
+company-shared-css/
+
+└── assets/
+
+    ├── logos/
+
+    ├── icons/
+
+    ├── images/
+
+    ├── fonts/
+
+    └── ...
+
+\`\`\`
+
+Project-specific assets should remain inside the project that owns them.
+
+**---**
+
+**## Prompts**
+
+Shared CHAOS may contain prompts when those prompts represent reusable or canonical system knowledge.
+
+Example:
+
+\`\`\`text
+
+company-shared-css/
+
+└── prompts/
+
+    ├── prompt-1.md
+
+    └── prompt-2.md
+
+\`\`\`
+
+Prompts specific to one project may remain in that project's \`.chaos/\`.
+
+**---**
+
+**## CHAOS Is Not a Task Manager**
+
+CHAOS does not replace:
+
+\- GitHub Issues
+
+\- Linear
+
+\- Jira
+
+\- Pull Requests
+
+\- Task management
+
+\- Project management
+
+Temporary work does not automatically belong in CSS.
+
+CHAOS represents system knowledge and context.
+
+**---**
+
+**## CHAOS and Git**
+
+CHAOS represents the current canonical context.
+
+Git represents its historical evolution.
+
+\`\`\`text
+
+.chaos/
+
+    ↓
+
+Current system context
+
+Git
+
+    ↓
+
+History of changes
+
+\`\`\`
+
+A separate \`changes/\` system is not required.
+
+When system knowledge changes, update the canonical specification and allow Git to record the change.
+
+**---**
+
+**## Tool Agnostic**
+
+CHAOS is intentionally independent of any particular AI provider or development tool.
+
+The system should not require separate copies of context such as:
+
+\`\`\`text
+
+CLAUDE.md
+
+CODEX.md
+
+GEMINI.md
+
+CURSOR.md
+
+\`\`\`
+
+\`AGENTS.md\` is the standard AI entry point.
+
+\> **\*\*The agent may change. The system context does not.\*\***
+
+**---**
+
+**## Use Cases**
+
+**### Multiple AI Agents**
+
+Different agents can work on different repositories while consulting the same system context.
+
+\`\`\`text
+
+Agent A → API
+
+Agent B → App
+
+Agent C → Admin
+
+\`\`\`
+
+**### AI Agent Handoff**
+
+One agent can make a system-level change and update the canonical CHAOS. Another agent can continue from the updated context without requiring a manually written explanation.
+
+**### New Developer Onboarding**
+
+A developer can start with \`README.md\` and consult \`.chaos/\` when deeper system knowledge is required.
+
+**### New AI Agent**
+
+A completely different AI agent can enter through \`AGENTS.md\` and discover the project's CHAOS and shared CSS without requiring previous conversation history.
+
+**### Repository Rewrites**
+
+A repository can be rewritten or replaced while preserving the system's canonical context.
+
+**### Multiple Frontends**
+
+Several applications can share the same API and system rules while maintaining their own local implementation context.
+
+**### Shared Branding and Assets**
+
+Multiple projects can consume canonical branding and shared assets from Shared CHAOS.
+
+**### Shared Prompts**
+
+Multiple projects or agents can use canonical shared prompts without maintaining duplicated versions.
+
+**---**
+
+**## Rules**
+
+1\. Every project has a \`README.md\`.
+
+2\. Every project has an \`AGENTS.md\`.
+
+3\. Every project has a \`.chaos/\`.
+
+4\. \`README.md\` is the human entry point.
+
+5\. \`AGENTS.md\` is the AI entry point.
+
+6\. \`.chaos/\` is the canonical project context.
+
+7\. Shared knowledge belongs in Shared CHAOS.
+
+8\. One concept should have one canonical source.
+
+9\. Do not unnecessarily duplicate shared knowledge.
+
+10\. AI agents should consult relevant CSS before context-sensitive changes.
+
+11\. Cross-project changes must consider Shared CHAOS.
+
+12\. Update CSS when canonical system behavior changes.
+
+13\. CHAOS is not a task-management system.
+
+14\. Git provides historical change tracking.
+
+15\. CHAOS must remain tool-agnostic.
+
+16\. Do not create vendor-specific copies of system context.
+
+17\. Do not use CSS as a source-code dump.
+
+18\. Do not allow contradictory specifications to remain authoritative.
+
+19\. Keep \`AGENTS.md\` concise.
+
+20\. Keep CSS simple and evolve it only when necessary.
+
+21\. Shared CHAOS may contain reusable assets when they are intentionally canonical or shared.
+
+22\. Project-specific assets remain in the project that owns them.
+
+23\. Humans and AI agents should consume the same canonical system context.
+
+**---**
+
+**## Recommended Company Structure**
+
+\`\`\`text
+
+company-api/
+
+├── README.md
+
+├── AGENTS.md
+
+└── .chaos/
+
+company-app/
+
+├── README.md
+
+├── AGENTS.md
+
+└── .chaos/
+
+company-admin/
+
+├── README.md
+
+├── AGENTS.md
+
+└── .chaos/
+
+company-shared-css/
+
+├── branding/
+
+├── assets/
+
+├── prompts/
+
+├── shared/
+
+├── integrations/
+
+└── contracts/
+
+\`\`\`
+
+The exact structure should evolve according to the system.
+
+**---**
+
+**## Mental Model**
+
+\`\`\`text
+
+                    PROJECT
+
+                       │
+
+          ┌────────────┼────────────┐
+
+          ↓            ↓            ↓
+
+     README.md     AGENTS.md      .chaos/
+
+       Human           AI         Context
+
+      Entry Point   Entry Point     Layer
+
+          │            │             │
+
+          └────────────┴─────────────┘
+
+                       │
+
+                       ↓
+
+                  Source Code
+
+\`\`\`
+
+For a multi-repository system:
+
+\`\`\`text
+
+                       SYSTEM
+
+                          │
+
+             ┌────────────┴────────────┐
+
+             │                         │
+
+        Local CSS                Shared CHAOS
+
+             │                         │
+
+       ┌─────┼─────┐                   │
+
+       ↓     ↓     ↓                   ↓
+
+      API   APP   ADMIN       Shared System Knowledge
+
+\`\`\`
+
+**---**
+
+**## Fundamental Statement
+
+> **CHAOS (Context for Human-AI Organization of Systems) is an open, tool-agnostic convention for organizing the context required by humans and AI agents to understand, develop, maintain, and evolve software systems.**
+
+The CHAOS project convention is:
+
+> **README.md is the human entry point. AGENTS.md is the AI entry point. `.chaos/` is the canonical system context. Shared CHAOS provides canonical context that crosses project boundaries.**
+
+The ultimate goal is:
+
+> **The system should not depend on a human being the carrier of its context.**
+
+The deeper principle is:
+
+> **Chaos precedes order. Context enables shared understanding.**
+
+The relevant knowledge should be discoverable, structured, current, and accessible to both humans and AI agents.
+
