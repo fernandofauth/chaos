@@ -802,7 +802,7 @@ A developer can start with $1README.md$1 and consult $1.chaos/$1 when deeper sys
 
 ### New AI Agent
 
-A completely different AI agent can enter through $1AGENTS.md$1 and discover the project's CHAOS and shared CSS without requiring previous conversation history.
+A completely different AI agent can enter through $1AGENTS.md$1 and discover the project's CHAOS and shared CHAOS without requiring previous conversation history.
 
 ### Repository Rewrites
 
