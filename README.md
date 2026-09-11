@@ -138,9 +138,19 @@ When the agent understands the system, it can determine what kind of expertise i
 
 > **"I need a mechanic specialized in this engine."**
 
-When the agent understands the system, it can determine what kind of expertise is actually required.
+This also means that humans should not necessarily have to decide which skills an AI needs for every task.
 
-> **"I need a mechanic specialized in this engine."**
+As AI models become increasingly capable of reasoning and decision-making, the AI can use the system context itself to determine what capabilities are required and how the task should be approached.
+
+> **Give the AI the context. Let the AI decide how to act.**
+
+The same principle applies to maintaining context and skills.
+
+If a skill is required to work correctly within a specific system, humans should not have to manually maintain the skill and the system context as separate sources of truth.
+
+The AI should be able to determine when a change in the system context also requires a change in the relevant skill, and vice versa.
+
+> **Context and capability should evolve together when the system requires it.**
 
 This is why CHAOS does not need to replace AI capabilities or teach an AI how to perform every possible task. The capability may already exist in the model, in a skill, or in another tool.
 
