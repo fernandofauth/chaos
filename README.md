@@ -39,7 +39,7 @@ Terms such as *context*, *documentation*, *system*, *specification*, *architectu
 
 **CHAOS** is different. It is a new, deliberately unusual name for this specific convention. The goal is to create a strong and unambiguous association between the name, the convention, and the `.chaos/` directory.
 
-This matters particularly in AI-assisted development. As AI agents and future models encounter the convention across repositories, a distinctive term can become a recognizable semantic signal: **CHAOS → system context organization for humans and AI**.
+This matters particularly in AI-assisted development. As AI agents and future models encounter the convention across repositories, a distinctive term can become a recognizable semantic signal: **CHAOS → persistent system context for humans and AI**.
 
 The name is not intended to describe documentation, specifications, source code, or any existing software-engineering category. It identifies the convention itself.
 
@@ -245,6 +245,111 @@ CHAOS answers:
 > What is this system? Why does it work this way? What are its rules, constraints, relationships, and expected behaviors?
 
 Humans and AI agents should be able to arrive at the same system understanding without relying on previous conversations or a specific individual.
+
+---
+
+## Architecture is Context
+
+A project structure is not only a technical detail.
+
+It is also a map of meaning.
+
+A clear architecture communicates:
+
+- where domain logic lives
+- where integrations live
+- where shared contracts live
+- where infrastructure code lives
+- which boundary is authoritative
+- which parts are local versus shared
+
+This reduces ambiguity for both humans and AI agents.
+
+A well-designed repository structure provides immediate context before the code is even read.
+
+That is a major token-efficiency gain.
+
+### Naming is Context
+
+Folder and file names are not cosmetic.
+
+They are part of the system's communication layer.
+
+Good names reduce the need to inspect implementation details.
+
+Examples:
+
+```text
+payments/
+webhooks/
+orders/
+contracts/
+shared/
+platform/
+```
+
+These names immediately suggest meaning.
+
+By contrast, vague or inconsistent naming forces the AI to open files and infer intent from code, which increases:
+
+- reading time
+- token consumption
+- ambiguity
+- risk of wrong assumptions
+
+> **Architecture and naming are not just organization. They are lightweight system context.**
+
+### Why this matters for AI
+
+AI agents work best when they can locate the correct domain quickly.
+
+If the project structure is clear, they can:
+
+- quickly identify the relevant boundary
+- avoid reading unrelated modules
+- locate contracts and integrations faster
+- infer responsibilities from the structure itself
+- reduce repeated exploration and token waste
+
+This matters especially in multi-repository systems.
+
+Without structure, the agent must reconstruct the system from scattered code and assumptions.
+
+This is a costly and error-prone pattern.
+
+---
+
+## Project Structure
+
+Every CHAOS-compliant project should expose:
+
+```text
+project/
+├── README.md
+├── AGENTS.md
+└── .chaos/
+```
+
+But the project should also be organized in ways that make the system understandable at a glance.
+
+For example:
+
+```text
+project/
+├── app/
+├── api/
+├── shared/
+├── integrations/
+├── contracts/
+├── docs/
+├── README.md
+├── AGENTS.md
+└── .chaos/
+```
+
+The exact structure varies, but the guiding principle remains the same:
+
+> **The architecture should reduce discovery cost and increase clarity.**
 
 ---
 
