@@ -28,11 +28,144 @@ For systems composed of multiple repositories, shared knowledge can be maintaine
 
 **## Getting Started**
 
-Use [\`STARTER-PROMPT.md\`]\(STARTER-PROMPT.md) with an AI agent to implement CSS in an existing repository. The prompt guides the agent through a complete project audit, a proposed context structure for approval, implementation of \`README.md\`, \`AGENTS.md\`, and \`.chaos/\`, and a final coverage and consistency review.
+Use [\`STARTER-PROMPT.md\`]\(STARTER-PROMPT.md) with an AI agent to implement CHAOS in an existing repository. The prompt guides the agent through a complete project audit, a proposed context structure for approval, implementation of \`README.md\`, \`AGENTS.md\`, and \`.chaos/\`, and a final coverage and consistency review.
 
 **---**
 
-**## From Chaos to Order
+**## Why the Name CHAOS
+
+The name is intentionally distinctive.
+
+Terms such as *context*, *documentation*, *system*, *specification*, *architecture*, and *knowledge base* already have broad and overlapping meanings across software engineering and AI tooling. A generic directory name such as `.context` can therefore be interpreted in many different ways.
+
+**CHAOS** is different. It is a new, deliberately unusual name for this specific convention. The goal is to create a strong and unambiguous association between the name, the convention, and the `.chaos/` directory.
+
+This matters particularly in AI-assisted development. As AI agents and future models encounter the convention across repositories, a distinctive term can become a recognizable semantic signal: **CHAOS → system context organization for humans and AI**.
+
+The name is not intended to describe documentation, specifications, source code, or any existing software-engineering category. It identifies the convention itself.
+
+The unusual name also creates a useful conceptual contrast:
+
+> **Chaos precedes order.**
+
+Software systems naturally accumulate distributed knowledge and complexity. CHAOS provides the structure through which that complexity can become organized, persistent, and shared.
+
+The objective is therefore not to compete with existing concepts such as documentation or architecture. It is to establish a distinct concept that can reference and organize them when they form part of the canonical system context.
+
+> **A distinctive name creates a distinctive concept.**
+
+**---**
+
+## CHAOS vs AI Skills
+
+AI skills and CHAOS solve different problems.
+
+A skill represents a **capability**:
+
+> **Skill: Be a mechanic.**
+
+It can teach an AI how to perform a class of tasks, such as changing a brake system, diagnosing an engine, or performing an electrical repair.
+
+CHAOS represents the **specific system being worked on**:
+
+> **CHAOS: Here is the car. Here is how it is built, what has been modified, what constraints exist, what depends on what, and what must not be broken.**
+
+The distinction is:
+
+```text
+Skill
+"What can you do?"
+
+CHAOS
+"What are you working on?"
+```
+
+Or:
+
+```text
+Skill → Capability
+CHAOS → System Context
+```
+
+### Why this matters
+
+A highly capable AI may already know how to perform a task. What it cannot reliably infer is the **specific intent, constraints, relationships, and history of the system in front of it**.
+
+For example, imagine an AI agent working on an e-commerce platform.
+
+A skill might tell the agent:
+
+> "You are capable of implementing payment integrations."
+
+CHAOS can tell the agent:
+
+```text
+This system uses Stripe.
+
+The checkout service owns payment creation.
+
+The frontend must never create Stripe payments directly.
+
+Payment webhooks are untrusted and may be delivered more than once.
+
+The order can only enter "paid" after the backend verifies the payment.
+
+Three applications depend on this contract.
+```
+
+The skill provides the ability to work with payments.
+
+CHAOS provides the knowledge required to work with **this payment system correctly**.
+
+The same principle applies to the mechanic analogy:
+
+```text
+AI
+│
+├── Skills
+│   └── "Be a mechanic."
+│
+└── CHAOS
+    └── "Here is the car."
+        ├── Architecture
+        ├── Components
+        ├── Modifications
+        ├── Constraints
+        └── Relationships
+```
+
+When the agent understands the system, it can determine what kind of expertise is actually required.
+
+> **"I need a mechanic specialized in this engine."**
+
+This is why CHAOS does not need to replace AI capabilities or teach an AI how to perform every possible task. The capability may already exist in the model, in a skill, or in another tool.
+
+CHAOS supplies the missing piece:
+
+> **The persistent context of the actual system.**
+
+### Capability is becoming general. Context remains specific.
+
+AI models increasingly provide broad technical capabilities. They can reason, write code, use tools, learn APIs, and adapt to unfamiliar technologies.
+
+What remains unique to each project is its system context:
+
+- Why the architecture exists this way
+- Which rules must never be violated
+- Which components own which responsibilities
+- Which contracts connect projects
+- Which integrations have special constraints
+- Which business behaviors are intentional
+- Which decisions were made and why
+
+CHAOS makes that knowledge discoverable and persistent instead of leaving it in the memory of a developer, a previous AI agent, or a temporary conversation.
+
+> **Skills provide capability. CHAOS provides context.**
+
+Together, they allow an AI to not only know **how to do something**, but understand **what it is doing it to and why**.
+
+
+## From Chaos to Order
 
 Software systems naturally accumulate complexity.
 
@@ -193,7 +326,7 @@ Example:
 
 \`\`\`text
 
-company-shared-css/
+company-shared-chaos/
 
 ├── branding/
 
@@ -257,7 +390,7 @@ While:
 
 \`\`\`text
 
-company-shared-css/
+company-shared-chaos/
 
 \`\`\`
 
@@ -285,7 +418,7 @@ Prefer:
 
 \`\`\`text
 
-company-shared-css/
+company-shared-chaos/
 
 └── integrations/
 
@@ -365,7 +498,7 @@ An AI agent entering a CHAOS-compliant project should:
 
 7\. Implement the change.
 
-8\. Update the relevant CSS when canonical system behavior changes.
+8\. Update the relevant CHAOS when canonical system behavior changes.
 
 The agent should not assume that source code alone represents the complete system requirements.
 
@@ -527,7 +660,7 @@ Examples:
 
 \`\`\`text
 
-company-shared-css/
+company-shared-chaos/
 
 └── assets/
 
@@ -555,7 +688,7 @@ Example:
 
 \`\`\`text
 
-company-shared-css/
+company-shared-chaos/
 
 └── prompts/
 
@@ -585,7 +718,7 @@ CHAOS does not replace:
 
 \- Project management
 
-Temporary work does not automatically belong in CSS.
+Temporary work does not automatically belong in CHAOS.
 
 CHAOS represents system knowledge and context.
 
@@ -709,11 +842,11 @@ Multiple projects or agents can use canonical shared prompts without maintaining
 
 9\. Do not unnecessarily duplicate shared knowledge.
 
-10\. AI agents should consult relevant CSS before context-sensitive changes.
+10\. AI agents should consult relevant CHAOS before context-sensitive changes.
 
 11\. Cross-project changes must consider Shared CHAOS.
 
-12\. Update CSS when canonical system behavior changes.
+12\. Update CHAOS when canonical system behavior changes.
 
 13\. CHAOS is not a task-management system.
 
@@ -767,7 +900,7 @@ company-admin/
 
 └── .chaos/
 
-company-shared-css/
+company-shared-chaos/
 
 ├── branding/
 
@@ -829,7 +962,7 @@ For a multi-repository system:
 
              │                         │
 
-        Local CSS                Shared CHAOS
+        Local CHAOS                Shared CHAOS
 
              │                         │
 
