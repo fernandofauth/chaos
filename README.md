@@ -17,14 +17,13 @@ project/
 └── .chaos/
 ```
 
-- `README.md` — Human Entry Point
-- `AGENTS.md` — AI Agent Entry Point
-- `.chaos/` — Canonical System Context
+- `README.md` — Human entry point
+- `AGENTS.md` — AI agent entry point
+- `.chaos/` — canonical system context
 
 For systems composed of multiple repositories, shared knowledge can be maintained in a dedicated shared CHAOS repository.
 
 ---
-
 
 ## Getting Started
 
@@ -233,7 +232,6 @@ The system should not depend on a human being the carrier of its context.
 
 ---
 
-
 ## Core Principle
 
 > **The source code contains the implementation. CHAOS contains the context required to understand and evolve the system.**
@@ -250,57 +248,40 @@ Humans and AI agents should be able to arrive at the same system understanding w
 
 ---
 
-
 ## Project Structure
 
 Every CHAOS-compliant project should expose:
 
 ```text
-
 project/
-
 ├── README.md
-
 ├── AGENTS.md
-
 └── .chaos/
-
 ```
 
-### README.md — Human Entry Point
+### README.md — Human entry point
 
 Used for:
 
 - Project purpose
-
 - Overview
-
 - Installation
-
 - Development commands
-
 - Technology stack
-
 - Basic usage
-
 - Repository information
 
 The README is optimized for human onboarding.
 
-### AGENTS.md — AI Agent Entry Point
+### AGENTS.md — AI agent entry point
 
 Used for:
 
 - Repository role
-
 - Agent instructions
-
 - Location of `.chaos/`
-
 - Important rules
-
 - Shared CHAOS references
-
 - Project-specific constraints
 
 `AGENTS.md` should remain concise. It is an entry point, not the complete knowledge base.
@@ -312,29 +293,17 @@ Contains the knowledge required to understand and work on the project.
 It may include:
 
 - Architecture
-
 - Business logic
-
 - Feature behavior
-
 - Design
-
 - UX/UI behavior
-
 - Integrations
-
 - Contracts
-
 - Security constraints
-
 - System relationships
-
 - Operational knowledge
-
 - Technical decisions
-
 - Important limitations
-
 - Project-specific conventions
 
 The internal structure of `.chaos/` is flexible and should evolve according to the project's needs.
@@ -354,47 +323,28 @@ When multiple repositories are part of the same system, knowledge shared across 
 Example:
 
 ```text
-
 company-shared-chaos/
-
 ├── branding/
-
 ├── assets/
-
 ├── prompts/
-
 ├── integrations/
-
 ├── contracts/
-
 └── shared/
-
 ```
 
 Shared CHAOS may contain:
 
 - Branding
-
 - Design assets
-
 - Shared assets
-
 - Prompts
-
 - Shared components
-
 - Shared conventions
-
 - Cross-project integrations
-
 - API contracts
-
 - Data contracts
-
 - Shared behaviors
-
 - System-wide constraints
-
 - Other reusable system knowledge
 
 Shared CHAOS is not a task manager and should not become a repository of temporary communication.
@@ -408,9 +358,7 @@ Shared CHAOS is not a task manager and should not become a repository of tempora
 Example:
 
 ```text
-
 company-api/.chaos/
-
 ```
 
 may contain API internal architecture, internal services, database behavior, and API-specific business logic.
@@ -418,12 +366,10 @@ may contain API internal architecture, internal services, database behavior, and
 While:
 
 ```text
-
 company-shared-chaos/
-
 ```
 
-may contain Company branding, shared assets, API ↔ App integration, API ↔ Admin integration, shared prompts, shared contracts, and system-wide design rules.
+may contain company branding, shared assets, API ↔ App integration, API ↔ Admin integration, shared prompts, shared contracts, and system-wide design rules.
 
 ---
 
@@ -434,25 +380,17 @@ may contain Company branding, shared assets, API ↔ App integration, API ↔ Ad
 Avoid:
 
 ```text
-
 company-api/FE-INTEGRATION.md
-
 company-app/FE-INTEGRATION.md
-
 company-admin/FE-INTEGRATION.md
-
 ```
 
 Prefer:
 
 ```text
-
 company-shared-chaos/
-
 └── integrations/
-
     └── app-api.md
-
 ```
 
 Projects should reference canonical shared knowledge instead of duplicating it.
@@ -464,45 +402,27 @@ Projects should reference canonical shared knowledge instead of duplicating it.
 Human flow:
 
 ```text
-
 Human
-
   ↓
-
 README.md
-
   ↓
-
 .chaos/ when deeper context is required
-
   ↓
-
 Source Code
-
 ```
 
 AI flow:
 
 ```text
-
 AI Agent
-
   ↓
-
 AGENTS.md
-
   ↓
-
 .chaos/
-
   ↓
-
 Shared CHAOS when required
-
   ↓
-
 Source Code
-
 ```
 
 Both audiences ultimately use the same canonical system context.
@@ -514,19 +434,12 @@ Both audiences ultimately use the same canonical system context.
 An AI agent entering a CHAOS-compliant project should:
 
 1. Read `AGENTS.md`.
-
 2. Understand the role of the repository.
-
 3. Identify relevant `.chaos/` documents.
-
 4. Read the required context before making significant changes.
-
 5. Determine whether the change affects another project.
-
 6. Consult Shared CHAOS when necessary.
-
 7. Implement the change.
-
 8. Update the relevant CHAOS when canonical system behavior changes.
 
 The agent should not assume that source code alone represents the complete system requirements.
@@ -536,35 +449,20 @@ The agent should not assume that source code alone represents the complete syste
 Especially when working on:
 
 - Architecture
-
 - Business logic
-
 - Feature behavior
-
 - UX/UI behavior
-
 - Design
-
 - Branding
-
 - Assets
-
 - Integrations
-
 - API contracts
-
 - Data flows
-
 - Authentication
-
 - Security-sensitive behavior
-
 - Cross-project functionality
-
 - System-wide conventions
-
 - Existing technical decisions
-
 - Non-obvious constraints
 
 Agents do not need to read the entire CHAOS repository for every change. Context should be consumed according to relevance.
@@ -578,21 +476,13 @@ When a change affects multiple repositories, the agent must consider the relevan
 Example:
 
 ```text
-
 company-api
-
      ↓
-
 API behavior changes
-
      ↓
-
 company-app
-
      ↓
-
 company-admin
-
 ```
 
 The shared specification should describe the canonical expected behavior where appropriate.
@@ -614,19 +504,14 @@ CHAOS should not become a copy of the implementation.
 Good:
 
 ```text
-
 The Admin application obtains account information through
-
 the API and must not access the database directly.
-
 ```
 
 Unnecessary:
 
 ```text
-
 A complete copy of the AccountService implementation.
-
 ```
 
 The specification should contain information that helps humans and AI correctly understand and evolve the system.
@@ -636,13 +521,9 @@ The specification should contain information that helps humans and AI correctly 
 ## CHAOS vs README.md
 
 | File | Purpose |
-
 |---|---|
-
 | `README.md` | Human onboarding |
-
 | `AGENTS.md` | AI onboarding and instructions |
-
 | `.chaos/` | Canonical project context |
 
 README focuses on getting into the project.
@@ -655,26 +536,18 @@ Large duplication between README and CHAOS should be avoided.
 
 ## CHAOS vs AGENTS.md
 
-`AGENTS.md` tells an AI agent **``how to enter and navigate the project``**.
+`AGENTS.md` tells an AI agent **how to enter and navigate the project**.
 
-`.chaos/` tells the agent **``what it needs to know about the system``**.
+`.chaos/` tells the agent **what it needs to know about the system**.
 
 ```text
-
 AGENTS.md
-
     ↓
-
 Where should I look?
-
     ↓
-
 .chaos/
-
     ↓
-
 What do I need to know?
-
 ```
 
 `AGENTS.md` should therefore remain concise.
@@ -688,21 +561,13 @@ Shared CHAOS may contain assets when those assets are part of the canonical syst
 Examples:
 
 ```text
-
 company-shared-chaos/
-
 └── assets/
-
     ├── logos/
-
     ├── icons/
-
     ├── images/
-
     ├── fonts/
-
     └── ...
-
 ```
 
 Project-specific assets should remain inside the project that owns them.
@@ -716,15 +581,10 @@ Shared CHAOS may contain prompts when those prompts represent reusable or canoni
 Example:
 
 ```text
-
 company-shared-chaos/
-
 └── prompts/
-
     ├── prompt-1.md
-
     └── prompt-2.md
-
 ```
 
 Prompts specific to one project may remain in that project's `.chaos/`.
@@ -736,15 +596,10 @@ Prompts specific to one project may remain in that project's `.chaos/`.
 CHAOS does not replace:
 
 - GitHub Issues
-
 - Linear
-
 - Jira
-
 - Pull Requests
-
 - Task management
-
 - Project management
 
 Temporary work does not automatically belong in CHAOS.
@@ -760,19 +615,13 @@ CHAOS represents the current canonical context.
 Git represents its historical evolution.
 
 ```text
-
 .chaos/
-
     ↓
-
 Current system context
 
 Git
-
     ↓
-
 History of changes
-
 ```
 
 A separate `changes/` system is not required.
@@ -788,15 +637,10 @@ CHAOS is intentionally independent of any particular AI provider or development 
 The system should not require separate copies of context such as:
 
 ```text
-
 CLAUDE.md
-
 CODEX.md
-
 GEMINI.md
-
 CURSOR.md
-
 ```
 
 `AGENTS.md` is the standard AI entry point.
@@ -812,13 +656,9 @@ CURSOR.md
 Different agents can work on different repositories while consulting the same system context.
 
 ```text
-
 Agent A → API
-
 Agent B → App
-
 Agent C → Admin
-
 ```
 
 ### AI Agent Handoff
@@ -854,49 +694,27 @@ Multiple projects or agents can use canonical shared prompts without maintaining
 ## Rules
 
 1. Every project has a `README.md`.
-
 2. Every project has an `AGENTS.md`.
-
 3. Every project has a `.chaos/`.
-
 4. `README.md` is the human entry point.
-
 5. `AGENTS.md` is the AI entry point.
-
 6. `.chaos/` is the canonical project context.
-
 7. Shared knowledge belongs in Shared CHAOS.
-
 8. One concept should have one canonical source.
-
 9. Do not unnecessarily duplicate shared knowledge.
-
 10. AI agents should consult relevant CHAOS before context-sensitive changes.
-
 11. Cross-project changes must consider Shared CHAOS.
-
 12. Update CHAOS when canonical system behavior changes.
-
 13. CHAOS is not a task-management system.
-
 14. Git provides historical change tracking.
-
 15. CHAOS must remain tool-agnostic.
-
 16. Do not create vendor-specific copies of system context.
-
 17. Do not use CHAOS as a source-code dump.
-
 18. Do not allow contradictory specifications to remain authoritative.
-
 19. Keep `AGENTS.md` concise.
-
 20. Keep CHAOS simple and evolve it only when necessary.
-
 21. Shared CHAOS may contain reusable assets when they are intentionally canonical or shared.
-
 22. Project-specific assets remain in the project that owns them.
-
 23. Humans and AI agents should consume the same canonical system context.
 
 ---
@@ -904,45 +722,28 @@ Multiple projects or agents can use canonical shared prompts without maintaining
 ## Recommended Company Structure
 
 ```text
-
 company-api/
-
 ├── README.md
-
 ├── AGENTS.md
-
 └── .chaos/
 
 company-app/
-
 ├── README.md
-
 ├── AGENTS.md
-
 └── .chaos/
 
 company-admin/
-
 ├── README.md
-
 ├── AGENTS.md
-
 └── .chaos/
 
 company-shared-chaos/
-
 ├── branding/
-
 ├── assets/
-
 ├── prompts/
-
 ├── shared/
-
 ├── integrations/
-
 └── contracts/
-
 ```
 
 The exact structure should evolve according to the system.
@@ -952,7 +753,6 @@ The exact structure should evolve according to the system.
 ## Mental Model
 
 ```text
-
                     PROJECT
 
                        │
@@ -962,9 +762,7 @@ The exact structure should evolve according to the system.
           ↓            ↓            ↓
 
      README.md     AGENTS.md      .chaos/
-
        Human           AI         Context
-
       Entry Point   Entry Point     Layer
 
           │            │             │
@@ -976,13 +774,11 @@ The exact structure should evolve according to the system.
                        ↓
 
                   Source Code
-
 ```
 
 For a multi-repository system:
 
 ```text
-
                        SYSTEM
 
                           │
@@ -1000,7 +796,6 @@ For a multi-repository system:
        ↓     ↓     ↓                   ↓
 
       API   APP   ADMIN       Shared System Knowledge
-
 ```
 
 ---
@@ -1028,4 +823,3 @@ The relevant knowledge should be discoverable, structured, current, and accessib
 ## Author
 
 CHAOS was created by [Fernando Fauth](https://github.com/fernandofauth).
-
