@@ -182,7 +182,7 @@ Together, they allow an AI to not only know **how to do something**, but underst
 
 The goal is not to make humans manually orchestrate the combination of context, skills, and tasks.
 
-Instead, provide the AI with the context of the actual system and let the AI determine what capabilities, skills, tools, or reasoning are required.
+Instead, provide the AI with the context of the actual system and let it determine which capabilities, skills, tools, or reasoning are required for the task at hand.
 
 ```text
 Human
@@ -192,6 +192,7 @@ System Context
 AI understands the system
   ↓
 AI decides how to act
+```
 
 ## From Chaos to Order
 
