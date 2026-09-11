@@ -994,3 +994,9 @@ The deeper principle is:
 
 The relevant knowledge should be discoverable, structured, current, and accessible to both humans and AI agents.
 
+**---**
+
+**## Author**
+
+CHAOS was created by [Fernando Fauth](https://github.com/fernandofauth).
+
