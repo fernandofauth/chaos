@@ -330,40 +330,6 @@ project/
 └── .chaos/
 ```
 
-But the project should also be organized in ways that make the system understandable at a glance.
-
-For example:
-
-```text
-project/
-├── app/
-├── api/
-├── shared/
-├── integrations/
-├── contracts/
-├── docs/
-├── README.md
-├── AGENTS.md
-└── .chaos/
-```
-
-The exact structure varies, but the guiding principle remains the same:
-
-> **The architecture should reduce discovery cost and increase clarity.**
-
----
-
-## Project Structure
-
-Every CHAOS-compliant project should expose:
-
-```text
-project/
-├── README.md
-├── AGENTS.md
-└── .chaos/
-```
-
 ### README.md — Human entry point
 
 Used for:
