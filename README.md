@@ -374,7 +374,7 @@ Shared CHAOS is not a task manager and should not become a repository of tempora
 
 ## Local vs Shared Context
 
-> **g{1}**
+> **Project-specific knowledge belongs in the project's `.chaos/`. Knowledge required by multiple projects belongs in Shared CHAOS.**
 
 Example:
 
@@ -400,7 +400,7 @@ may contain Company branding, shared assets, API ↔ App integration, API ↔ Ad
 
 ## Single Source of Truth
 
-> **g{1}**
+> **One concept should have one canonical source.**
 
 Avoid:
 
@@ -484,21 +484,21 @@ Both audiences ultimately use the same canonical system context.
 
 An AI agent entering a CHAOS-compliant project should:
 
-g{1}. Read `AGENTS.md`.
+1. Read `AGENTS.md`.
 
-g{1}. Understand the role of the repository.
+2. Understand the role of the repository.
 
-g{1}. Identify relevant `.chaos/` documents.
+3. Identify relevant `.chaos/` documents.
 
-g{1}. Read the required context before making significant changes.
+4. Read the required context before making significant changes.
 
-g{1}. Determine whether the change affects another project.
+5. Determine whether the change affects another project.
 
-g{1}. Consult Shared CHAOS when necessary.
+6. Consult Shared CHAOS when necessary.
 
-g{1}. Implement the change.
+7. Implement the change.
 
-g{1}. Update the relevant CHAOS when canonical system behavior changes.
+8. Update the relevant CHAOS when canonical system behavior changes.
 
 The agent should not assume that source code alone represents the complete system requirements.
 
@@ -772,7 +772,7 @@ CURSOR.md
 
 `AGENTS.md` is the standard AI entry point.
 
-> **g{1}**
+> **The agent may change. The system context does not.**
 
 ---
 
@@ -824,51 +824,51 @@ Multiple projects or agents can use canonical shared prompts without maintaining
 
 ## Rules
 
-g{1}. Every project has a `README.md`.
+1. Every project has a `README.md`.
 
-g{1}. Every project has an `AGENTS.md`.
+2. Every project has an `AGENTS.md`.
 
-g{1}. Every project has a `.chaos/`.
+3. Every project has a `.chaos/`.
 
-g{1}. `README.md` is the human entry point.
+4. `README.md` is the human entry point.
 
-g{1}. `AGENTS.md` is the AI entry point.
+5. `AGENTS.md` is the AI entry point.
 
-g{1}. `.chaos/` is the canonical project context.
+6. `.chaos/` is the canonical project context.
 
-g{1}. Shared knowledge belongs in Shared CHAOS.
+7. Shared knowledge belongs in Shared CHAOS.
 
-g{1}. One concept should have one canonical source.
+8. One concept should have one canonical source.
 
-g{1}. Do not unnecessarily duplicate shared knowledge.
+9. Do not unnecessarily duplicate shared knowledge.
 
-g{1}. AI agents should consult relevant CHAOS before context-sensitive changes.
+10. AI agents should consult relevant CHAOS before context-sensitive changes.
 
-g{1}. Cross-project changes must consider Shared CHAOS.
+11. Cross-project changes must consider Shared CHAOS.
 
-g{1}. Update CHAOS when canonical system behavior changes.
+12. Update CHAOS when canonical system behavior changes.
 
-g{1}. CHAOS is not a task-management system.
+13. CHAOS is not a task-management system.
 
-g{1}. Git provides historical change tracking.
+14. Git provides historical change tracking.
 
-g{1}. CHAOS must remain tool-agnostic.
+15. CHAOS must remain tool-agnostic.
 
-g{1}. Do not create vendor-specific copies of system context.
+16. Do not create vendor-specific copies of system context.
 
-g{1}. Do not use CHAOS as a source-code dump.
+17. Do not use CHAOS as a source-code dump.
 
-g{1}. Do not allow contradictory specifications to remain authoritative.
+18. Do not allow contradictory specifications to remain authoritative.
 
-g{1}. Keep `AGENTS.md` concise.
+19. Keep `AGENTS.md` concise.
 
-g{1}. Keep CHAOS simple and evolve it only when necessary.
+20. Keep CHAOS simple and evolve it only when necessary.
 
-g{1}. Shared CHAOS may contain reusable assets when they are intentionally canonical or shared.
+21. Shared CHAOS may contain reusable assets when they are intentionally canonical or shared.
 
-g{1}. Project-specific assets remain in the project that owns them.
+22. Project-specific assets remain in the project that owns them.
 
-g{1}. Humans and AI agents should consume the same canonical system context.
+23. Humans and AI agents should consume the same canonical system context.
 
 ---
 
