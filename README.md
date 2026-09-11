@@ -138,6 +138,10 @@ When the agent understands the system, it can determine what kind of expertise i
 
 > **"I need a mechanic specialized in this engine."**
 
+When the agent understands the system, it can determine what kind of expertise is actually required.
+
+> **"I need a mechanic specialized in this engine."**
+
 This is why CHAOS does not need to replace AI capabilities or teach an AI how to perform every possible task. The capability may already exist in the model, in a skill, or in another tool.
 
 CHAOS supplies the missing piece:
@@ -164,6 +168,20 @@ CHAOS makes that knowledge discoverable and persistent instead of leaving it in 
 
 Together, they allow an AI to not only know **how to do something**, but understand **what it is doing it to and why**.
 
+### Let the AI decide
+
+The goal is not to make humans manually orchestrate the combination of context, skills, and tasks.
+
+Instead, provide the AI with the context of the actual system and let the AI determine what capabilities, skills, tools, or reasoning are required.
+
+```text
+Human
+  ↓
+System Context
+  ↓
+AI understands the system
+  ↓
+AI decides how to act
 
 ## From Chaos to Order
 
